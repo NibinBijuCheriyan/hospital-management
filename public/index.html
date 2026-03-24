@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ====================================================
+         Hospital Management System — Frontend
+         This page contains two forms:
+           1. Patient Registration Form
+           2. Appointment Booking Form
+         ==================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MedCare Hospital Appointment Management System — Register patients and book appointments online.">
+    <title>MedCare — Hospital Appointment System</title>
+
+    <!-- Google Font: Poppins (clean, modern font) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+    <!-- Our custom styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ====================================================
+         HEADER — Branding & tagline
+         ==================================================== -->
+    <header>
+        <div class="header-content">
+            <h1>🏥 MedCare</h1>
+            <p>Hospital Appointment Management System</p>
+        </div>
+    </header>
+
+    <!-- ====================================================
+         MAIN CONTENT — Two form cards side by side
+         ==================================================== -->
+    <main class="container">
+
+        <!-- ================================================
+             CARD 1: Patient Registration Form
+             ================================================ -->
+        <div class="card" id="registration-card">
+            <div class="card-header">
+                <span class="card-icon">👤</span>
+                <h2>Register Patient</h2>
+            </div>
+
+            <form id="patientForm">
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="pname">Full Name</label>
+                    <input type="text" id="pname" placeholder="Enter patient's full name" required>
+                </div>
+
+                <!-- Age -->
+                <div class="form-group">
+                    <label for="page">Age</label>
+                    <input type="number" id="page" placeholder="Enter age" min="1" max="150" required>
+                </div>
+
+                <!-- Gender — Changed from text input to dropdown -->
+                <div class="form-group">
+                    <label for="pgender">Gender</label>
+                    <select id="pgender" required>
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group">
+                    <label for="pphone">Phone Number</label>
+                    <input type="text" id="pphone" placeholder="10-digit phone number" required>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="pemail">Email</label>
+                    <input type="email" id="pemail" placeholder="patient@email.com" required>
+                </div>
+
+                <button type="submit" id="registerBtn">Register Patient</button>
+            </form>
+
+            <!-- This area will show the generated Patient ID after registration -->
+            <div id="patientIdDisplay" class="result-display" style="display: none;">
+                <p>✅ Registered! Your Patient ID is: <strong id="generatedId"></strong></p>
+            </div>
+        </div>
+
+        <!-- ================================================
+             CARD 2: Appointment Booking Form
+             ================================================ -->
+        <div class="card" id="appointment-card">
+            <div class="card-header">
+                <span class="card-icon">📅</span>
+                <h2>Book Appointment</h2>
+            </div>
+
+            <form id="appointmentForm">
+                <!-- Patient ID (user enters this manually — they got it from registration) -->
+                <div class="form-group">
+                    <label for="pid">Patient ID</label>
+                    <input type="number" id="pid" placeholder="Enter your Patient ID" min="1" required>
+                </div>
+
+                <!-- Doctor Selection — Dynamically populated from the database -->
+                <div class="form-group">
+                    <label for="doctorSelect">Select Doctor</label>
+                    <select id="doctorSelect" required>
+                        <option value="" disabled selected>Loading doctors...</option>
+                    </select>
+                </div>
+
+                <!-- Appointment Date -->
+                <div class="form-group">
+                    <label for="date">Appointment Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <!-- Appointment Time -->
+                <div class="form-group">
+                    <label for="time">Appointment Time</label>
+                    <input type="time" id="time" required>
+                </div>
+
+                <button type="submit" id="bookBtn">Book Appointment</button>
+            </form>
+
+            <!-- Success/error messages for appointments -->
+            <div id="appointmentResult" class="result-display" style="display: none;"></div>
+        </div>
+
+    </main>
+
+    <!-- ====================================================
+         FOOTER
+         ==================================================== -->
+    <footer>
+        <p>&copy; 2026 MedCare Hospital — 5th Semester Mini Project</p>
+    </footer>
+
+    <!-- Our rewritten JavaScript (connects to the Go backend) -->
+    <script src="script.js"></script>
+</body>
+</html>

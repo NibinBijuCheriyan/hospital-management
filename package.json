@@ -1,0 +1,25 @@
+{
+  "name": "hospital-management",
+  "version": "1.0.0",
+  "main": "script (1).js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NibinBijuCheriyan/hospital-management.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NibinBijuCheriyan/hospital-management/issues"
+  },
+  "homepage": "https://github.com/NibinBijuCheriyan/hospital-management#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mysql2": "^3.20.0"
+  }
+}
